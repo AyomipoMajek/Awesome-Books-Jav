@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.firstpage {
+  margin-top: 30px;
+  padding-left: 10px;
+}
+
+.firstpage h1 {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.book1 {
+  line-height: 20px;
+}
+
+.book1 h4 {
+  font-weight: 540;
+}
+
+.formsection {
+  padding-left: 10px;
+}
