@@ -3,24 +3,34 @@
   padding: 0;
 }
 
-.firstpage {
-  margin-top: 30px;
+.heading {
+  margin-top: 20px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+.library {
   padding-left: 10px;
 }
 
-.firstpage h1 {
-  padding-bottom: 20px;
-  font-size: 20px;
+.container hr {
+  margin-top: 10px;
 }
 
-.book1 {
-  line-height: 20px;
-}
-
-.book1 h4 {
-  font-weight: 540;
+.book-shelf {
+  padding-bottom: 10px;
 }
 
 .formsection {
   padding-left: 10px;
+}
+
+.booktitle {
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.bookauthor {
+  margin-top: 10px;
+  padding-bottom: 10px;
 }
