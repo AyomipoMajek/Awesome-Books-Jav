@@ -12,16 +12,43 @@ const addBookForm = document.querySelector('.add-book-form');
 const addBookBtn = document.querySelector('.add-book');
 
 // FUNCTIONS
-// Function to add data to local storage
-const addBookToLS = (element) => {
-  if (localStorage.getItem('books') === null){
-    awesomeBookDB = [];  
+// function to get localStorage content
+const getLocalStorageContent = () => {
+  let LSContent;
+  if (localStorage.getItem('books') === null) {
+    LSContent = [];
   } else {
-    awesomeBookDB = JSON.parse(localStorage.getItem('books')); 
-  }
+    LSContent = JSON.parse(localStorage.getItem('books'));
+  } 
+  return LSContent;
+}
+
+
+// Function to add data to localStorage
+const addBookToLS = (element) => {
+  awesomeBookDB = getLocalStorageContent()
   awesomeBookDB.push(element);
   localStorage.setItem('books', JSON.stringify(awesomeBookDB))
   }
+// const addBookToLS = (element) => {
+//   if (localStorage.getItem('books') === null){
+//     awesomeBookDB = [];  
+//   } else {
+//     awesomeBookDB = JSON.parse(localStorage.getItem('books')); 
+//   }
+//   awesomeBookDB.push(element);
+//   localStorage.setItem('books', JSON.stringify(awesomeBookDB))
+//   }
+
+
+
+
+
+
+// function to remove book from localStorage 
+const removeBookFromLS = () => {
+
+}
   
 
 // Function to add book to DOM
