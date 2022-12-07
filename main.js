@@ -79,22 +79,17 @@ const removeBook = (e) => {
   }
   // Remove book from local storage
   const idItemToRemove = Number(e.target.previousSibling.innerText);
-  console.log(idItemToRemove);
-  localStorage.setItem("books", JSON.stringify(getLocalStorageContent().forEach((el, i, Arr) => {
+  const newLSContent = getLocalStorageContent();
+  newLSContent.forEach((el, i, Arr) => {
     if (el.id === idItemToRemove) {
-     Arr.splice(i, 1)
+      Arr.splice(i, 1);
     }
-  })));
+  });
+  localStorage.setItem('books', JSON.stringify(newLSContent));
 };
 
 // 5. Function to load localStorage content and render it on Document load
 const loadLStoDOM = () => {
-  const book = {
-    title: title.value,
-    author: author.value,
-    id: Math.random(),
-  };
-
   getLocalStorageContent().forEach((el) => {
     // Create elements required for individual book
     const bookCard = document.createElement('div');
