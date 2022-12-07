@@ -12,6 +12,18 @@ const addBookForm = document.querySelector('.add-book-form');
 const addBookBtn = document.querySelector('.add-book');
 
 // FUNCTIONS
+// Function to add data to local storage
+const addBookToLS = (element) => {
+  if (localStorage.getItem('books') === null){
+    awesomeBookDB = [];  
+  } else {
+    awesomeBookDB = JSON.parse(localStorage.getItem('books')); 
+  }
+  awesomeBookDB.push(element);
+  localStorage.setItem('books', JSON.stringify(awesomeBookDB))
+  }
+  
+
 // Function to add book to DOM
 const addBook = (e) => {
   e.preventDefault()
@@ -43,22 +55,26 @@ const addBook = (e) => {
   bookCard.append(bookTitle, bookAuthor, delBtn, hr);
   bookShelf.appendChild(bookCard)
 
+  addBookToLS(book)
 
   title.value = '';
   author.value = '';
   console.log(bookShelf);
 }
 
+
 // Function to remove book from DOM
 const removeBook = (e) => {
-  // e.stopPropagation();
   if (e.target.classList.contains('delete-button')) {
     e.target.parentElement.remove();
   }
 }
 
 
-// EVENTLISTENERS
+
+
+
+// EVENT LISTENERS
 
 
 
