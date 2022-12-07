@@ -11,3 +11,18 @@ const author = document.querySelector('input#book-author');
 const addBookForm = document.querySelector('.add-book-form')
 const addBookBtn = document.querySelector('.add-book');
 
+// FUNCTIONS
+
+
+
+
+// EVENTLISTENERS
+
+
+
+// Function to load all event listeners
+const loadEventListeners = () => {
+
+}
+
+loadEventListeners();
