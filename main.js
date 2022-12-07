@@ -80,11 +80,11 @@ const removeBook = (e) => {
   // Remove book from local storage
   const idItemToRemove = Number(e.target.previousSibling.innerText);
   console.log(idItemToRemove);
-  const indexITR = getLocalStorageContent().forEach((el, i, Arr) => {
+  localStorage.setItem("books", JSON.stringify(getLocalStorageContent().forEach((el, i, Arr) => {
     if (el.id === idItemToRemove) {
-      console.log(i);
+     Arr.splice(i, 1)
     }
-  });
+  })));
 };
 
 // 5. Function to load localStorage content and render it on Document load

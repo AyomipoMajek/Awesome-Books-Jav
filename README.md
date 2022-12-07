@@ -189,7 +189,7 @@ Example:
 👤 **Majekodunmi Ayomipo**
 
 - GitHub: [@AyomipoMajek](https://github.com/AyomipoMajek)
-- Twitter: [@pawroyale_]
+- Twitter: [@pawroyale_]()
 - LinkedIn: [Ayomipo Majek](https://linkedin.com/in/linkedinhandle)
 
 👤 **Kola Kolade**
