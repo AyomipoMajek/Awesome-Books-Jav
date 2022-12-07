@@ -8,33 +8,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <section class="firstpage">
-    <h1>Awesome books</h1>
-    <div class="book1">
-      <h4>Roman Empire</h4>
-      <p>The Roman Story</p>
-      <button class="remove">Remove</button>
-    </div>
-    <div class="book1">
-      <h4>Oyo Empire</h4>
-      <p>The Oyo Story</p>
-      <button class="remove">Remove</button>
-    </div>
-  </section>
-  <section class="formsection">
-    <form action="#" method="post">
-      <div class="bookinfo">
+  <div class="container">
+    <section class="library">
+      <div class="book-shelf"></div>
+    </section>
+    <hr>
+    <section class="formsection">
+      <form action="#" method="post" class="add-book-form">
         <div class="booktitle">
           <label for="title"></label>
-          <input type="text" id="title" name="book_title" placeholder="Title" required> 
+          <input type="text" id="book-title" name="book_title" placeholder="Book Title" required> 
         </div>
         <div class="bookauthor">
           <label for="author"></label>
-          <input type="text" id="author" name="book_author" placeholder="Author" required> 
+          <input type="text" id="book-author" name="book_author" placeholder="Author" required> 
         </div>
-        <button class="add">Add</button>
-      </div>
-    </form>
-  </section>
+        <button class="add-book">Add</button>
+      </form>
+    </section>
+  </div>
+  <script src="./app.js"></script>
 </body>
 </html>
