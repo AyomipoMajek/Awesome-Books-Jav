@@ -9,10 +9,37 @@ const bookShelf = document.querySelector('.book-shelf');
 const title = document.querySelector('input#book-title');
 const author = document.querySelector('input#book-author');
 const addBookForm = document.querySelector('.add-book-form');
+const submit = document.querySelector('submit')
 // FUNCTIONS
 // ---------------------------
 
-// 1. function to get localStorage content
+class Book {
+  constructor(title, author) {
+    this.title;
+    this.author;
+  }
+}
+
+//add form
+
+document.getElementById('formsection').addEventListener("submit",
+function(e){
+
+  const title = document.getElementById('book-title').value
+  const author = document.getElementById('book-author').value
+  const book = new Book(title, author );
+  if(!title === '' || author === '') {
+    ui.addBookToList(book);
+  }
+
+
+  e.preventDefault();
+})
+
+
+
+
+/*// 1. function to get localStorage content
 const getLocalStorageContent = () => {
   let LSContent;
   if (localStorage.getItem('books') === null) {
@@ -132,4 +159,4 @@ const loadEventListeners = () => {
   document.addEventListener('DOMContentLoaded', loadLStoDOM);
 };
 
-loadEventListeners();
+loadEventListeners();*/
