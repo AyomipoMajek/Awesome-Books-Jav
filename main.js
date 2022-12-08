@@ -1,9 +1,11 @@
+// VARIABLES
+
 // Select element from the dom
 const bookShelf = document.querySelector('.book-shelf');
-
 const addBookForm = document.querySelector('.add-book-form');
 
 
+// CLASSES
 // Add Book class as a template to create books
 class Book {
   constructor(_title, _author, _bookId) {
@@ -16,25 +18,9 @@ class Book {
 
 // Add a class for views manipulation
 class Views {
-  displayBooks() {
-    const awesomeBookDB = [
-      {
-        title: 'book title 1',
-        author: 'book autho 1',
-        id: 'book id 1',
-      },
-      {
-        title: 'book title 1',
-        author: 'book autho 1',
-        id: 'book id 1',
-      }
-    ];
-
-    // console.log(awesomeBookDB);
-    // const books = awesomeBookDB;
-    // console.log(books);
-    awesomeBookDB.forEach((book) => Views.addBook(book));
-    // books.forEach((book) => Views.addBook(book));
+  static displayBooks() {
+    const bookCase = BookPersistence.getLSContent();
+    bookCase.forEach((book) => Views.addBook(book));
   }
 
   static addBook(book) {
@@ -61,11 +47,7 @@ class Views {
 
     // Build a book card and attach it to the library
     bookCard.append(bookTitle, bookAuthor, bookId, delBtn);
-    console.log(bookCard);
     bookShelf.appendChild(bookCard);
-
-    // Add the book to localStorage
-    // addBookToLS(book);
   }
 
   static clearInputField() {
@@ -81,8 +63,8 @@ class Views {
 }
 
 
-class bookPersistence {
-  static getLocalStorageContent() {
+class BookPersistence {
+  static getLSContent() {
     let LSContent;
     if (localStorage.getItem('books') === null) {
       LSContent = [];
@@ -93,28 +75,15 @@ class bookPersistence {
   }
 
   static addBookToLS(element) {
-    awesomeBookDB = getLocalStorageContent();
-    awesomeBookDB.push(element);
-    localStorage.setItem('books', JSON.stringify(awesomeBookDB));
+    const AwesomeBookDB = BookPersistence.getLSContent();
+    AwesomeBookDB.push(element);
+    localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
   }
-
-
-  static getLocalStorageContent() {
-    let LSContent;
-    if (localStorage.getItem('books') === null) {
-      LSContent = [];
-    } else {
-      LSContent = JSON.parse(localStorage.getItem('books'));
-    }
-    return LSContent;
-  }
-
-
-  static removeBook() {
-  const idItemToRemove = Number(e.target.previousSibling.innerText);
-  const newLSContent = getLocalStorageContent();
-  newLSContent.forEach((el, i, Arr) => {
-    if (el.id === idItemToRemove) {
+  static removeBookLS(id) {
+  // const bookId = Number(e.target.previousSibling.innerText);
+  const newLSContent = BookPersistence.getLSContent();
+  newLSContent.forEach((book, i, Arr) => {
+    if (book.bookId === id) {
       Arr.splice(i, 1);
     }
   });
@@ -126,22 +95,23 @@ class bookPersistence {
 
 // EVENT LISTENERS
 
-document.addEventListener('DOMContentLoaded', Views.displayBooks)
+document.addEventListener('DOMContentLoaded', Views.displayBooks);
 
 addBookForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let title = document.querySelector('input#book-title').value;
-  let author = document.querySelector('input#book-author').value;
+  const title = document.querySelector('input#book-title').value;
+  const author = document.querySelector('input#book-author').value;
   const bookId = Math.random();
-  console.log(bookId);
 
   const book = new Book(title, author, bookId);
-  console.log(book);
   Views.addBook(book);
-  Views.clearInputField()
+  Views.clearInputField();
+  BookPersistence.addBookToLS(book);
   
 });
 
 bookShelf.addEventListener('click', (e) => {
-  Views.removeBookDOM(e.target)
+  Views.removeBookDOM(e.target);
+  const idItemToRemove = Number(e.target.previousSibling.innerText);
+  BookPersistence.removeBookLS(idItemToRemove);
 })
