@@ -30,6 +30,7 @@ class Views {
     const bookTitle = document.createElement('p');
     const bookAuthor = document.createElement('p');
     const bookId = document.createElement('span');
+    const conjunction= document.createElement('span');
     const delBtn = document.createElement('button');
 
     // Assigning class, attributes and text content to the elements
@@ -41,12 +42,14 @@ class Views {
     bookAuthor.textContent = book.author;
     bookId.innerText = book.bookId;
     bookId.setAttribute('style', 'display: none;');
+    conjunction.className = 'conjunction';
+    conjunction.textContent = 'by';
     delBtn.className = 'delete-button';
     delBtn.setAttribute('type', 'button');
     delBtn.textContent = 'Delete Book';
 
     // Build a book card and attach it to the library
-    bookCard.append(bookTitle, bookAuthor, bookId, delBtn);
+    bookCard.append(bookTitle, conjunction, bookAuthor, bookId, delBtn);
     bookShelf.appendChild(bookCard);
   }
 
