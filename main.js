@@ -20,8 +20,8 @@ class Views {
     const bookCase = BookPersistence.getLSContent();
     bookCase.forEach((book) => Views.addBook(book));
   }
- static addBook(book) {
 
+  static addBook(book) {
     // Create elements required for individual book
     const bookCard = document.createElement('div');
     const bookTitle = document.createElement('p');
@@ -78,9 +78,9 @@ class BookPersistence {
     AwesomeBookDB.push(element);
     localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
   }
-  static removeBookLS(id) {
 
-  // const bookId = Number(e.target.previousSibling.innerText);
+  static removeBookLS(id) {
+    // const bookId = Number(e.target.previousSibling.innerText);
     const newLSContent = BookPersistence.getLSContent();
     newLSContent.forEach((book, i, Arr) => {
       if (book.bookId === id) {
@@ -104,7 +104,7 @@ addBookForm.addEventListener('submit', (e) => {
   const book = new Book(title, author, bookId);
   Views.addBook(book);
   Views.clearInputField();
-  BookPersistence.addBookToLS(book);  
+  BookPersistence.addBookToLS(book);
 });
 
 bookShelf.addEventListener('click', (e) => {
