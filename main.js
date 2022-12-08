@@ -1,3 +1,33 @@
+// Add Book class as a template to create books
+class Book {
+  constructor(_title, _author) {
+this.title = _title;
+this.author = _author;
+this.id = null
+  }
+  // set 
+}
+
+
+// Add a class for views
+class Views {
+   
+  displayBooks(){
+    awesomeBookDB = [
+      {
+        title: 'book title 1',
+        author: 'book autho 1';
+        id: 'book id 1'
+      },
+      {
+        title: 'book title 1',
+        author: 'book autho 1';
+        id: 'book id 1'
+      }
+    ]
+  }
+}
+
 // VARIABLEs
 // ------------------------
 
@@ -13,12 +43,6 @@ const submit = document.querySelector('submit')
 // FUNCTIONS
 // ---------------------------
 
-class Book {
-  constructor(title, author) {
-    this.title;
-    this.author;
-  }
-}
 
 //add form
 
