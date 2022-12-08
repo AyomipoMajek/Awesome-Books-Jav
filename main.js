@@ -14,6 +14,34 @@ class Book {
   }
 }
 
+class BookPersistence {
+  static getLSContent() {
+    let LSContent;
+    if (localStorage.getItem('books') === null) {
+      LSContent = [];
+    } else {
+      LSContent = JSON.parse(localStorage.getItem('books'));
+    }
+    return LSContent;
+  }
+
+  static addBookToLS(element) {
+    const AwesomeBookDB = BookPersistence.getLSContent();
+    AwesomeBookDB.push(element);
+    localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
+  }
+  static removeBookLS(id) {
+    // const bookId = Number(e.target.previousSibling.innerText);
+    const newLSContent = BookPersistence.getLSContent();
+    newLSContent.forEach((book, i, Arr) => {
+      if (book.bookId === id) {
+        Arr.splice(i, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(newLSContent));
+  }
+}
+
 // Add a class for views manipulation
 class Views {
   static displayBooks() {
@@ -59,35 +87,6 @@ class Views {
     if (item.classList.contains('delete-button')) {
       item.parentElement.remove();
     }
-  }
-}
-
-class BookPersistence {
-  static getLSContent() {
-    let LSContent;
-    if (localStorage.getItem('books') === null) {
-      LSContent = [];
-    } else {
-      LSContent = JSON.parse(localStorage.getItem('books'));
-    }
-    return LSContent;
-  }
-
-  static addBookToLS(element) {
-    const AwesomeBookDB = BookPersistence.getLSContent();
-    AwesomeBookDB.push(element);
-    localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
-  }
-
-  static removeBookLS(id) {
-    // const bookId = Number(e.target.previousSibling.innerText);
-    const newLSContent = BookPersistence.getLSContent();
-    newLSContent.forEach((book, i, Arr) => {
-      if (book.bookId === id) {
-        Arr.splice(i, 1);
-      }
-    });
-    localStorage.setItem('books', JSON.stringify(newLSContent));
   }
 }
 
