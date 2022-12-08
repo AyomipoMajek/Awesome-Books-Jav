@@ -20,8 +20,12 @@
   font-size: 13px;
 }
 
-.library {
-  padding-left: 10px;
+.book:nth-child(odd) {
+  background: #ccc;
+  height: 20px;
+}
+.book:nth-child(even) {
+  background: #fff;
 }
 
 .container hr {
