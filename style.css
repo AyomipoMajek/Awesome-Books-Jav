@@ -19,8 +19,12 @@
   font-size: 13px;
 }
 
+.book-title {
+  padding-right: 5px;
+}
+
 .book-author {
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .book:nth-child(odd) {
@@ -34,6 +38,10 @@
 .book-shelf {
   box-sizing: border-box;
   border-style: solid;
+}
+
+.conjunction {
+  padding-left: 5px;
 }
 
 .container hr {
