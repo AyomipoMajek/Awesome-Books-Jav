@@ -73,11 +73,54 @@ class Views {
     document.querySelector('input#book-author').value = '';
   }
 
-  static removeBook(item) {
+  static removeBookDOM(item) {
     if (item.classList.contains('delete-button')) {
       item.parentElement.remove();
     }
   }
+}
+
+
+class bookPersistence {
+  static getLocalStorageContent() {
+    let LSContent;
+    if (localStorage.getItem('books') === null) {
+      LSContent = [];
+    } else {
+      LSContent = JSON.parse(localStorage.getItem('books'));
+    }
+    return LSContent;
+  }
+
+  static addBookToLS(element) {
+    awesomeBookDB = getLocalStorageContent();
+    awesomeBookDB.push(element);
+    localStorage.setItem('books', JSON.stringify(awesomeBookDB));
+  }
+
+
+  static getLocalStorageContent() {
+    let LSContent;
+    if (localStorage.getItem('books') === null) {
+      LSContent = [];
+    } else {
+      LSContent = JSON.parse(localStorage.getItem('books'));
+    }
+    return LSContent;
+  }
+
+
+  static removeBook() {
+  const idItemToRemove = Number(e.target.previousSibling.innerText);
+  const newLSContent = getLocalStorageContent();
+  newLSContent.forEach((el, i, Arr) => {
+    if (el.id === idItemToRemove) {
+      Arr.splice(i, 1);
+    }
+  });
+  localStorage.setItem('books', JSON.stringify(newLSContent));
+  }
+
 }
 
 
@@ -100,5 +143,5 @@ addBookForm.addEventListener('submit', (e) => {
 });
 
 bookShelf.addEventListener('click', (e) => {
-  Views.removeBook(e.target)
+  Views.removeBookDOM(e.target)
 })
