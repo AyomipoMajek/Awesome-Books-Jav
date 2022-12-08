@@ -32,6 +32,10 @@
   margin-top: 10px;
 }
 
+.delete-button {
+  font-size: 10px;
+}
+
 .book-shelf {
   padding-bottom: 10px;
 }
