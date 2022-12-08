@@ -30,6 +30,7 @@ class BookPersistence {
     AwesomeBookDB.push(element);
     localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
   }
+  
   static removeBookLS(id) {
     // const bookId = Number(e.target.previousSibling.innerText);
     const newLSContent = BookPersistence.getLSContent();
