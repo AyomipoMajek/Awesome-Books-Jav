@@ -16,15 +16,50 @@ class Views {
     awesomeBookDB = [
       {
         title: 'book title 1',
-        author: 'book autho 1';
+        author: 'book autho 1',
         id: 'book id 1'
       },
       {
         title: 'book title 1',
-        author: 'book autho 1';
+        author: 'book autho 1',
         id: 'book id 1'
       }
-    ]
+    ];
+
+    const books = awesomeBookDB;
+    books.forEach(book => UI.addBook(book))
+  }
+
+  static addBook(book){
+    // Create elements required for individual book
+  const bookCard = document.createElement('div');
+  const bookTitle = document.createElement('p');
+  const bookAuthor = document.createElement('p');
+  const bookId = document.createElement('span');
+  const delBtn = document.createElement('button');
+
+  // Assigning class, attributes and text content to the elements
+  bookCard.className = 'book';
+  bookShelf.className = 'book-shelf';
+  bookTitle.className = 'book-title';
+  bookTitle.textContent = book.title;
+  bookAuthor.className = 'book-author';
+  bookAuthor.textContent = book.author;
+  bookId.innerText = book.id;
+  bookId.setAttribute('style', 'display: none;');
+  delBtn.className = 'delete-button';
+  delBtn.setAttribute('type', 'button');
+  delBtn.textContent = 'Delete Book';
+
+  // Build a book card and attach it to the library
+  bookCard.append(bookTitle, bookAuthor, bookId, delBtn);
+  bookShelf.appendChild(bookCard);
+
+  // Add the book to localStorage
+  // addBookToLS(book);
+
+  title.value = '';
+  author.value = '';
   }
 }
 
@@ -32,33 +67,33 @@ class Views {
 // ------------------------
 
 // Designate a variable to store the books
-let awesomeBookDB;
+// let awesomeBookDB;
 
-// Select element from the dom
-const bookShelf = document.querySelector('.book-shelf');
-const title = document.querySelector('input#book-title');
-const author = document.querySelector('input#book-author');
-const addBookForm = document.querySelector('.add-book-form');
-const submit = document.querySelector('submit')
-// FUNCTIONS
-// ---------------------------
-
-
-//add form
-
-document.getElementById('formsection').addEventListener("submit",
-function(e){
-
-  const title = document.getElementById('book-title').value
-  const author = document.getElementById('book-author').value
-  const book = new Book(title, author );
-  if(!title === '' || author === '') {
-    ui.addBookToList(book);
-  }
+// // Select element from the dom
+// const bookShelf = document.querySelector('.book-shelf');
+// const title = document.querySelector('input#book-title');
+// const author = document.querySelector('input#book-author');
+// const addBookForm = document.querySelector('.add-book-form');
+// const submit = document.querySelector('submit')
+// // FUNCTIONS
+// // ---------------------------
 
 
-  e.preventDefault();
-})
+// //add form
+
+// document.getElementById('formsection').addEventListener("submit",
+// function(e){
+
+//   const title = document.getElementById('book-title').value
+//   const author = document.getElementById('book-author').value
+//   const book = new Book(title, author );
+//   if(!title === '' || author === '') {
+//     ui.addBookToList(book);
+//   }
+
+
+//     e.preventDefault();
+//   })
 
 
 
