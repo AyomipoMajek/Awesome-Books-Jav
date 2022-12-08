@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.heading {
+  margin-top: 20px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+/* library positioning */
+
+.library {
+  padding-left: 10px;
+}
+
+.container hr {
+  margin-top: 10px;
+}
+
+.book-shelf {
+  padding-bottom: 10px;
+}
+
+/* form section positioning */
+
+.formsection {
+  padding-left: 10px;
+}
+
+.booktitle {
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.bookauthor {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
