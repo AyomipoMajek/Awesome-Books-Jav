@@ -31,6 +31,7 @@
   background: #ccc;
   height: 20px;
 }
+
 .book:nth-child(even) {
   background: #fff;
 }

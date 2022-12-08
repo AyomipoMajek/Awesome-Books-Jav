@@ -4,7 +4,6 @@
 const bookShelf = document.querySelector('.book-shelf');
 const addBookForm = document.querySelector('.add-book-form');
 
-
 // CLASSES
 // Add Book class as a template to create books
 class Book {
@@ -13,7 +12,6 @@ class Book {
     this.author = _author;
     this.bookId = _bookId;
   }
-
 }
 
 // Add a class for views manipulation
@@ -22,15 +20,14 @@ class Views {
     const bookCase = BookPersistence.getLSContent();
     bookCase.forEach((book) => Views.addBook(book));
   }
+ static addBook(book) {
 
-  static addBook(book) {
-    
     // Create elements required for individual book
     const bookCard = document.createElement('div');
     const bookTitle = document.createElement('p');
     const bookAuthor = document.createElement('p');
     const bookId = document.createElement('span');
-    const conjunction= document.createElement('span');
+    const conjunction = document.createElement('span');
     const delBtn = document.createElement('button');
 
     // Assigning class, attributes and text content to the elements
@@ -65,7 +62,6 @@ class Views {
   }
 }
 
-
 class BookPersistence {
   static getLSContent() {
     let LSContent;
@@ -83,18 +79,17 @@ class BookPersistence {
     localStorage.setItem('books', JSON.stringify(AwesomeBookDB));
   }
   static removeBookLS(id) {
+
   // const bookId = Number(e.target.previousSibling.innerText);
-  const newLSContent = BookPersistence.getLSContent();
-  newLSContent.forEach((book, i, Arr) => {
-    if (book.bookId === id) {
-      Arr.splice(i, 1);
-    }
-  });
-  localStorage.setItem('books', JSON.stringify(newLSContent));
+    const newLSContent = BookPersistence.getLSContent();
+    newLSContent.forEach((book, i, Arr) => {
+      if (book.bookId === id) {
+        Arr.splice(i, 1);
+      }
+    });
+    localStorage.setItem('books', JSON.stringify(newLSContent));
   }
-
 }
-
 
 // EVENT LISTENERS
 
@@ -109,12 +104,11 @@ addBookForm.addEventListener('submit', (e) => {
   const book = new Book(title, author, bookId);
   Views.addBook(book);
   Views.clearInputField();
-  BookPersistence.addBookToLS(book);
-  
+  BookPersistence.addBookToLS(book);  
 });
 
 bookShelf.addEventListener('click', (e) => {
   Views.removeBookDOM(e.target);
   const idItemToRemove = Number(e.target.previousSibling.innerText);
   BookPersistence.removeBookLS(idItemToRemove);
-})
+});
