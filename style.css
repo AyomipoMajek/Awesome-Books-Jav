@@ -1,72 +1,197 @@
-* {
+/* reset */
+:root {
+  font-size: 16px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: lato, sans-serif;
+  font-size: 1rem;
+  color: #444;
 }
 
-.heading {
-  margin-top: 20px;
-  padding-left: 10px;
-  margin-bottom: 30px;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
 }
 
-/* library positioning */
+li {
+  list-style: none;
+}
 
-.book {
+a {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-style: none;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  border: 2px solid #444;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+/* Header and Navbar */
+.header,
+.footer {
+  margin: 0.5rem 0;
+}
+
+.navbar {
+  height: 3rem;
   display: flex;
-  padding-bottom: 5px;
-  padding-top: 5px;
-  padding-left: 10px;
-  font-size: 13px;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #444;
 }
 
-.book-title {
-  padding-right: 5px;
+.brand {
+  padding-left: 0.25rem;
 }
 
-.book-author {
-  padding-left: 10px;
+.nav .list {
+  display: flex;
 }
 
-.book:nth-child(odd) {
-  background: #ccc;
-  height: 20px;
+.nav .list-item {
+  padding: 0 0.5rem;
 }
 
-.book:nth-child(even) {
-  background: #fff;
+.nav .list-item:last-of-type {
+  padding-right: 0.25rem;
+}
+
+.nav .link {
+  color: #444;
+}
+
+.date {
+  text-align: right;
+  margin: 0.5rem 0;
+}
+
+/* List Section */
+.library {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.headline {
+  margin-bottom: 1.2rem;
 }
 
 .book-shelf {
-  box-sizing: border-box;
-  border-style: solid;
+  border: 2px solid #444;
+  width: 100%;
 }
 
-.conjunction {
-  padding-left: 5px;
+.book {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem;
 }
 
-.container hr {
-  margin-top: 10px;
+.book:nth-child(odd) {
+  background-color: #eee;
 }
 
-.delete-button {
-  font-size: 10px;
-  box-shadow: 2px 2px #000;
-  margin-left: 120px;
+.book:nth-child(even) {
+  background-color: #fff;
 }
 
-/* form section positioning */
-
-.formsection {
-  padding-left: 10px;
+.book-cover {
+  display: flex;
+  gap: 1rem;
 }
 
-.booktitle {
-  margin-top: 5px;
-  padding-bottom: 5px;
+.btn {
+  width: fit-content;
+  padding: 0.25rem;
+  box-shadow: 2px 2px 2px #444;
 }
 
-.bookauthor {
-  margin-top: 10px;
-  padding-bottom: 10px;
+/* Add new book section */
+.add-new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-book-form {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="text"] {
+  max-width: 100%;
+  width: 400px;
+  padding: 0.25rem;
+  margin: 0 auto;
+}
+
+.add-book {
+  align-self: flex-end;
+}
+
+/* contact Section */
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.contact-detail-item {
+  list-style: disc;
+  margin-left: 1.5rem;
+}
+
+/* Footer */
+.footer {
+  margin: 0.5rem;
+  border: 2px solid #444;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 45%;
+  }
+
+  .row {
+    width: 100%;
+    padding: 0 10px;
+  }
 }
