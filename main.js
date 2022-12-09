@@ -4,6 +4,14 @@
 const bookShelf = document.querySelector('.book-shelf');
 const addBookForm = document.querySelector('.add-book-form');
 
+// FUNCTIONS
+// Function to display date
+const date = document.querySelector('.date');
+const displayDate = () => {
+  date.textContent = new Date().toLocaleString();
+};
+setInterval(displayDate, 1000);
+
 // CLASSES
 // Add Book class as a template to create books
 class Book {
