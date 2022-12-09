@@ -8,29 +8,78 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="heading">
-    <h1>Awesome Books</h1>
-  </div>
   <div class="container">
-    <section class="library">
-      <div class="book-shelf"></div>
-    </section>
-
-    <!-- form part of the page -->
-
-    <section class="formsection">
-      <form action="#" method="post" class="add-book-form">
-        <div class="booktitle">
-          <label for="book-title"></label>
-          <input type="text" id="book-title" name="book_title" placeholder="Book Title" required> 
+    <header class="header">
+      <div class="row">
+        <div class="navbar">
+          <div class="brand">Awesome Books</div>
+          <nav class="nav">
+            <ul class="list">
+              <li class="list-item" id="list-link"><a href="#list" class="link">List</a></li>
+              <span class="divider">|</span>
+              <li class="list-item" id="add-new-link"><a href="#add-book" class="link">Add New</a></li>
+              <span class="divider">|</span>
+              <li class="list-item" id="contact-link"><a href="#contact" class="link">Contact</a></li>
+            </ul>
+          </nav>
         </div>
-        <div class="bookauthor">
-          <label for="book-author"></label>
-          <input type="text" id="book-author" name="book_author" placeholder="Author" required> 
+        <p class="date"></p>
+      </div>
+     
+    </header>
+    <main class="main">
+     
+    </main>
+    <section class="list section" id="list">
+      <div class="row library">
+        <div class="headline">
+          <h1>All awesome Books</h1>
         </div>
-        <button class="add-book" id="submit">Add Book</button>
-      </form>
+        <div class="book-shelf"></div>
+      </div>    
     </section>
+  
+      <!-- form part of the page -->
+  
+    <section class="formsection section hide" id="add-book">
+      <div class="row add-new">
+        <div class="headline">
+          <h1>Add a new book</h1>
+        </div>
+        <form action="#" method="post" class="add-book-form">
+          <div class="booktitle">
+            <label for="book-title"></label>
+            <input type="text" id="book-title" name="book_title" placeholder="Book Title" required> 
+          </div>
+          <div class="bookauthor">
+            <label for="book-author"></label>
+            <input type="text" id="book-author" name="book_author" placeholder="Author" required> 
+          </div>
+          <button class="add-book btn" id="submit">Add Book</button>
+        </form>
+      </div>
+    </section>
+    <section class="contact section hide" id="contact">
+      <div class="row contact-row">
+        <div class="headline">
+          <h1>Contact Information</h1>
+        </div>
+          <div class="text-content">
+            <p>Do you have any information or you just want to say 'Hello' </br>You can reach out to us.</p>
+            <ul class="contact-detail-list">
+              <li class="contact-detail-item">Our email: mail@mail.com</li>
+              <li class="contact-detail-item">Our Phone Number: 001234567890</li>
+              <li class="contact-detail-item">Our Address: 234 Main Street, New City, Best Country</li>
+            </ul>
+          </div>
+      </div>
+    </section>
+    <div class="row">
+
+    </div>
+    <footer class="footer">
+      <p>Copyright &copy;2022</p>
+    </footer>
   </div>
   <script src="./main.js"></script>
 </body>
