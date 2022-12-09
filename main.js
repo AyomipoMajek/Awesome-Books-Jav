@@ -120,3 +120,26 @@ bookShelf.addEventListener('click', (e) => {
   const idItemToRemove = Number(e.target.previousSibling.innerText);
   BookPersistence.removeBookLS(idItemToRemove);
 });
+
+// SINGLE PAGE APP
+const listLink = document.querySelector('#list-link');
+const addNewLink = document.querySelector('#add-new-link');
+const contactLink = document.querySelector('#contact-link');
+
+listLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.remove('hide');
+  document.querySelector('#add-book').classList.add('hide');
+  document.querySelector('#contact').classList.add('hide');
+});
+
+addNewLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.add('hide');
+  document.querySelector('#add-book').classList.remove('hide');
+  document.querySelector('#contact').classList.add('hide');
+});
+
+contactLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.add('hide');
+  document.querySelector('#add-book').classList.add('hide');
+  document.querySelector('#contact').classList.remove('hide');
+});
