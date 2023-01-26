@@ -4,6 +4,14 @@
 const bookShelf = document.querySelector('.book-shelf');
 const addBookForm = document.querySelector('.add-book-form');
 
+// FUNCTIONS
+// Function to display date
+const date = document.querySelector('.date');
+const displayDate = () => {
+  date.textContent = new Date().toLocaleString();
+};
+setInterval(displayDate, 1000);
+
 // CLASSES
 // Add Book class as a template to create books
 class Book {
@@ -111,4 +119,27 @@ bookShelf.addEventListener('click', (e) => {
   Views.removeBookDOM(e.target);
   const idItemToRemove = Number(e.target.previousSibling.innerText);
   BookPersistence.removeBookLS(idItemToRemove);
+});
+
+// SINGLE PAGE APP
+const listLink = document.querySelector('#list-link');
+const addNewLink = document.querySelector('#add-new-link');
+const contactLink = document.querySelector('#contact-link');
+
+listLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.remove('hide');
+  document.querySelector('#add-book').classList.add('hide');
+  document.querySelector('#contact').classList.add('hide');
+});
+
+addNewLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.add('hide');
+  document.querySelector('#add-book').classList.remove('hide');
+  document.querySelector('#contact').classList.add('hide');
+});
+
+contactLink.addEventListener('click', () => {
+  document.querySelector('#list').classList.add('hide');
+  document.querySelector('#add-book').classList.add('hide');
+  document.querySelector('#contact').classList.remove('hide');
 });
